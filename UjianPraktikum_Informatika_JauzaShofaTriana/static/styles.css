@@ -1,0 +1,341 @@
+/* ===============================
+   ROOT VARIABLE
+================================ */
+:root {
+    --primary-red: #c90000;
+    --dark-red: #8b0000;
+    --soft-red: #ffe5e5;
+
+    /* Soft Blue */
+    --soft-blue: #7aa5ff;
+    --dark-blue: #5f86ff;
+    --very-soft-blue: #e8f1ff;
+
+    --white: #ffffff;
+    --cream: #fffefc;
+    --gray: #6c757d;
+    --light-gray: #f8f9fa;
+
+    --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 8px 20px rgba(0,0,0,0.12);
+    --radius: 12px;
+}
+
+/* ===============================
+   GLOBAL
+================================ */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--light-gray);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+    box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-red) !important;
+}
+
+/* ===============================
+   CONTAINER & SECTION
+================================ */
+.container {
+    margin-top: 20px;
+}
+
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-red);
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+/* ===============================
+   CARD (GLOBAL)
+================================ */
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+    background-color: var(--primary-red);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card-footer {
+    background-color: var(--cream);
+    border-top: none;
+}
+
+/* ===============================
+   BUTTON (BOOTSTRAP ENHANCEMENT)
+================================ */
+.btn {
+    border-radius: 999px;
+    font-weight: 600;
+    padding: 8px 18px;
+    transition: all 0.25s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #c90000, #8b0000);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(201, 0, 0, 0.35);
+}
+
+.btn-success,
+.btn-warning,
+.btn-danger {
+    border: none;
+}
+
+.btn-sm {
+    padding: 5px 14px;
+    font-size: 0.85rem;
+}
+
+/* ===============================
+   FORM
+================================ */
+.form-control {
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.15rem rgba(201, 0, 0, 0.25);
+}
+
+/* ===============================
+   FIX SELECT DROPDOWN
+================================ */
+select.form-control {
+    appearance: auto;
+    -webkit-appearance: menulist;
+    -moz-appearance: menulist;
+    background-image: none;
+    padding-right: 40px;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.table {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.table thead {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.table tbody tr:hover {
+    background-color: var(--soft-red);
+}
+
+/* ===============================
+   ALERT
+================================ */
+.alert {
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ===============================
+   PRODUCT GRID
+================================ */
+.product-card img {
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* ==================================================
+   LOGIN PAGE
+================================================== */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--very-soft-blue), #f8fbff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+}
+
+.login-card label {
+    font-weight: 600;
+    color: #425b76;
+}
+
+.login-card .form-control {
+    border-radius: 12px;
+    border: 1px solid #dce6f2;
+}
+
+.login-card .form-control:focus {
+    border-color: var(--soft-blue);
+    box-shadow: 0 0 0 0.15rem rgba(122, 165, 255, 0.3);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    color: var(--white);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--soft-blue), var(--dark-blue));
+    border: none;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(95, 134, 255, 0.35);
+}
+
+/* ==================================================
+   REGISTER PAGE
+================================================== */
+.register-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--very-soft-blue), #f8fbff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    background-color: var(--white);
+    border-radius: 18px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+}
+
+.register-card label {
+    font-weight: 600;
+    color: #425b76;
+}
+
+.register-card .form-control {
+    border-radius: 12px;
+    border: 1px solid #dce6f2;
+}
+
+.register-card .form-control:focus {
+    border-color: var(--soft-blue);
+    box-shadow: 0 0 0 0.15rem rgba(122, 165, 255, 0.3);
+}
+
+.btn-register {
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    color: var(--white);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--soft-blue), var(--dark-blue));
+    border: none;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(95, 134, 255, 0.35);
+}
+
+/* ==================================================
+   ACTION BUTTON (EDIT & DELETE)
+================================================== */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-action {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.btn-action.btn-warning,
+.btn-action.btn-danger {
+    color: #fff;
+}
+
+.btn-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+    margin-top: auto;
+    background-color: var(--dark-red);
+    color: var(--white);
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}

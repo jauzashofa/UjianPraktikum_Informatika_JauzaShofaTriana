@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3>Edit Produk</h3>
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Nama Produk</label>
+            <input type="text"
+                   name="nama_produk"
+                   value="{{ produk.nama_produk }}"
+                   class="form-control"
+                   required>
+        </div>
+
+        <div class="mb-3">
+            <label>Kategori</label>
+            <select name="id_kategori" class="form-control" required>
+                {% for k in kategori %}
+                <option value="{{ k.id_kategori }}"
+                    {% if k.id_kategori == produk.id_kategori %}selected{% endif %}>
+                    {{ k.nama_kategori }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Harga</label>
+            <input type="number"
+                   name="harga"
+                   value="{{ produk.harga }}"
+                   class="form-control"
+                   required>
+        </div>
+
+        <div class="mb-3">
+            <label>Stok</label>
+            <input type="number"
+                   name="stok"
+                   value="{{ produk.stok }}"
+                   class="form-control"
+                   required>
+        </div>
+
+        <button class="btn btn-warning">Update</button>
+        <a href="{{ url_for('produk') }}" class="btn btn-secondary">Batal</a>
+    </form>
+</div>
+
+{% endblock %}

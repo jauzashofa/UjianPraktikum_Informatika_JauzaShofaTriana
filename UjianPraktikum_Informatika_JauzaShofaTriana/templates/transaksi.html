@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}Daftar Transaksi{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="text-center mb-4 fw-bold">
+        <i class="bi bi-receipt"></i> Daftar Transaksi
+    </h2>
+
+    {% if data %}
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered align-middle">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Produk</th>
+                        <th>Jumlah</th>
+                        <th>Total (Rp)</th>
+                        <th>Tanggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in data %}
+                        <tr class="text-center">
+                            <td>{{ loop.index }}</td>
+                            <td>{{ t.username | default('-') }}</td>
+                            <td>{{ t.nama_produk | default('-') }}</td>
+                            <td>{{ t.jumlah | default(0) }}</td>
+                            <td>Rp {{ "{:,}".format(t.total | default(0)) }}</td>
+                            <td>{{ t.tanggal | default('-') }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            Tidak ada transaksi.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

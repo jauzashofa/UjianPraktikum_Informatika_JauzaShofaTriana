@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="mb-3">Manajemen Produk</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nama</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th width="160">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in data %}
+            <tr>
+                <td>{{ p.nama_produk }}</td>
+                <td>{{ p.nama_kategori }}</td>
+                <td>Rp {{ p.harga }}</td>
+                <td>{{ p.stok }}</td>
+                <td>
+                    <a href="{{ url_for('produk_update', id_produk=p.id_produk) }}"
+                       class="btn btn-warning btn-sm">
+                       Edit
+                    </a>
+                    <a href="{{ url_for('produk_delete', id_produk=p.id_produk) }}"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Hapus produk ini?')">
+                       Hapus
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     <a href="{{ url_for('produk_create') }}" class="btn btn-primary mb-3">
+        + Tambah Produk
+    </a>
+</div>
+
+{% endblock %}

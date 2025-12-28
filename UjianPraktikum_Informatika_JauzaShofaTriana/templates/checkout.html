@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            Checkout Produk
+        </div>
+        <div class="card-body">
+            <h5>{{ produk.nama_produk }}</h5>
+            <p>Harga: <strong>Rp {{ produk.harga | int }}</strong></p>
+            <p>Stok tersedia: {{ produk.stok }}</p>
+
+            {% if session.beli_error %}
+            <div class="alert alert-danger">
+                {{ session.pop('beli_error') }}
+            </div>
+            {% endif %}
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label>Jumlah beli</label>
+                    <input type="number" name="jumlah" class="form-control" min="1" max="{{ produk.stok }}" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">
+                    Konfirmasi Pembelian
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

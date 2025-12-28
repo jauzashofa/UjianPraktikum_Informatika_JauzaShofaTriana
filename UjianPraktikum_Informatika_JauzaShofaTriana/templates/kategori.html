@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container mt-4">
+    <h3 class="mb-3">Manajemen Kategori</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Nama Kategori</th>
+                <th>Deskripsi</th>
+                <th width="160">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for k in data %}
+            <tr>
+                <td>{{ k.nama_kategori }}</td>
+                <td>{{ k.deskripsi }}</td>
+                <td>
+                    <a href="{{ url_for('kategori_update', id_kategori=k.id_kategori) }}"
+                       class="btn btn-warning btn-sm">
+                       Edit
+                    </a>
+                    <a href="{{ url_for('kategori_delete', id_kategori=k.id_kategori) }}"
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Hapus kategori ini?')">
+                       Hapus
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('kategori_create') }}" class="btn btn-primary mb-3">
+        + Tambah Kategori
+    </a>
+</div>
+
+{% endblock %}
